@@ -15,7 +15,6 @@ class App extends Component{
         <Header/>
         <Routes >
           <Route path="/" element={<Home/>} />
-
         </Routes >
       </BrowserRouter>
     );

@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+.converterMainDiv{
+    margin:0 auto;
+}
+
+.converterUnderDiv{
+    width:90%;
+}
+
+.converterİnput{
+    border-color:red;
+}
+
+.converterLabel{
+    color:rgb(226, 77, 89);
+}
+
+.converterİnput:focus {
+    border-color: rgb(255, 255, 255);
+    box-shadow: 0 0 0 0.15rem rgb(216, 125, 125);
+}
+
+@media screen and (max-width: 480px) {
+    .converterMainDiv{
+        width:100% !important;
+    }
+    .converterUnderDiv{
+        width: 88% !important;
+    }
+    .converterButton{
+        width: 12% !important;
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width:481px) {
+    .converterMainDiv{
+        width:90% !important;
+    }
+}
+
+@media screen and (max-width: 1024px) and (min-width:769px) {
+    .converterMainDiv{
+        width:56% !important;
+    }
+}
+
+@media screen and (max-width: 1200px) and (min-width:1025px) {
+    .converterMainDiv{
+        width:41% !important;
+    }
+}
+
+@media screen and (min-width:1201px) and (max-width: 1663px) {
+    .converterMainDiv{
+        width:35% !important;
+    }
+}
+
+@media screen and (min-width:1664px) {
+   
+}
+
+/* 320px — 480px: Mobile devices
+481px — 768px: iPads, Tablets
+769px — 1024px: Small screens, laptops
+1025px — 1200px: Desktops, large screens
+1201px and more —  Extra large screens, TV */

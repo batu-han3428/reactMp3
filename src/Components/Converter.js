@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { BsPatchCheck } from "react-icons/bs";
 import swal from 'sweetalert';
 import Axios from 'axios';
+import './Converter.css';
 
 
 class Converter extends Component{
@@ -49,15 +50,13 @@ class Converter extends Component{
         }
     }
 
-   
-
     render(){
         return(
-            <div className="input-group w-25" style={{margin:"0 auto"}}>
-                <button onClick={this.linkDonustur} id="donustur" type='button' className="btn btn-outline-danger"><BsPatchCheck /></button>
-                <div className="form-floating" style={{width:"90%"}}>
-                    <input type="text" className="form-control" id="video_link" placeholder="." style={{borderColor:"red"}} />
-                    <label htmlFor="video_link" style={{color:"rgb(226, 77, 89)"}}>Video Adress</label>
+            <div className="input-group w-25 converterMainDiv">
+                <button onClick={this.linkDonustur} id="donustur" type='button' className="btn btn-outline-danger converterButton"><BsPatchCheck /></button>
+                <div className="form-floating converterUnderDiv">
+                    <input type="text" className="form-control converterİnput" id="video_link" placeholder="." />
+                    <label htmlFor="video_link" className="converterLabel">Video Adress</label>
                 </div>
             </div>    
         );
