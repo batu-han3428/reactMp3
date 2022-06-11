@@ -1,17 +1,13 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './Banner.css';
 
-class Banner extends Component{
-    render(){
-        return(
-            <div className="card bg-dark text-white bannerCard">
-                <img src={require('../img/homePhoto.png')} className="card-img bannerImage" alt="BannerPhoto"/>
-                <div className="card-img-overlay d-flex align-items-end justify-content-end">
-                    <p className="card-text bannerText">Türkiyenin en hızlı, en iyi video dönüştürme platformu.</p>
-                </div>
-            </div>
-        );
-    }
-} 
+const Banner = () =>(
+    <div className="card bg-dark text-white bannerCard">
+        <img src={require('../img/homePhoto.png')} className="card-img bannerImage" alt="BannerPhoto"/>
+        <div className="card-img-overlay d-flex align-items-end justify-content-end">
+            <p className="card-text bannerText">Türkiyenin en hızlı, en iyi video dönüştürme platformu.</p>
+        </div>
+    </div>
+);
 
 export default Banner;

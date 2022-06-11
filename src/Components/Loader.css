@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
+
+.main-loading{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1055;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+  background-color: black;
+  opacity: 0.8;
+}
+
+.loading {
+  width: 15rem;
+  height: 7.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  position:absolute;
+  left:50%;
+  top:50%;
+  margin-left: -7.5rem;
+  margin-top:-3.75rem;
+}
+
+.loading .text {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin: auto;
+  color: #fff7f7;
+}
+
+.dot {
+  font-size: 2rem;
+  font-weight: 700;
+  border-radius: 50%;
+  color: #fff7f7;
+  animation: load 0.9s alternate infinite;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.50s;
+}
+
+.dot:nth-child(4) {
+  animation-delay: 0.66s;
+}
+
+.dot:nth-child(5) {
+  animation-delay: 0.82s;
+}
+
+.dot:nth-child(6) {
+  animation-delay: 0.98s;
+}
+
+.dot:nth-child(7) {
+  animation-delay: 1.14s;
+}
+
+.dot:nth-child(8) {
+  animation-delay: 1.30s;
+}
+
+.dot:nth-child(9) {
+  animation-delay: 1.46s;
+}
+
+.dot:nth-child(10) {
+  animation-delay: 1.62s;
+}
+
+@keyframes load {
+  from {
+    transform: scaleX(1.25);
+  }
+  to {
+    transform: translateY(-5rem) scaleX(1);
+  }
+}
