@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.toast{
+    top:calc(100% - 90px) !important;
+}
+
+@media screen and (max-width: 480px) {
+    .toast{
+        width: calc(100% - 23px) !important;
+    }
+}

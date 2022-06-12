@@ -36,6 +36,7 @@ class Converter extends Component{
         a.click();
         a.remove();
         this.setState({loader:false});
+        this.props.message(true,"Mp3 Dönüştürme İşlemi Tamamlandı!");
     }
 
     error(data){

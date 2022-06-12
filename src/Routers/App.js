@@ -2,7 +2,7 @@ import { Component } from 'react';
 import {BrowserRouter,Routes ,Route} from 'react-router-dom'
 import Header from "../Components/Header";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.js';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Home from '../Components/Home';
 
 
