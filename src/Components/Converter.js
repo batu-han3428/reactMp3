@@ -13,11 +13,12 @@ class Converter extends Component{
             link:"",
             loader:false
         }
-        this.linkDonustur = this.linkDonustur.bind(this);
-        this.mp3Indir = this.mp3Indir.bind(this);
+        this.convertLink = this.convertLink.bind(this);
+        this.mp3Download = this.mp3Download.bind(this);
+        this.error = this.error.bind(this);
     }
 
-    linkKontrol(str){
+    linkCheck(str){
         var regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
         if(!regex.test(str)) {
             return false;
@@ -26,8 +27,7 @@ class Converter extends Component{
         }
     }
 
-
-    mp3Indir(data){
+    mp3Download(data){
         const a = document.createElement('a');
         a.style.display = 'none';
         a.href = "data:audio/wav;base64,"+data.file;
@@ -37,9 +37,15 @@ class Converter extends Component{
         a.remove();
         this.setState({loader:false});
     }
+
+    error(data){
+        console.log(data);
+        swal("Beklenmeyen Bir Hata Oluştu!", "", "error");
+        this.setState({loader:false});
+    }
     
-    linkDonustur(){
-        if(!this.linkKontrol(document.getElementById('video_link').value)){
+    convertLink(){
+        if(!this.linkCheck(document.getElementById('video_link').value)){
             swal("Lütfen Geçerli Bir Link Giriniz!", "", "error");
         }else{
             this.setState({loader:true})
@@ -47,10 +53,8 @@ class Converter extends Component{
                 url:document.getElementById('video_link').value
               }})
               .then(resp=>resp.data)
-              .then(data=>this.mp3Indir(data))
-              .catch(function (error) {
-                console.log(error);
-              });
+              .then(data=>this.mp3Download(data))
+              .catch(data=>this.error(data));
         }
     }
 
@@ -58,7 +62,7 @@ class Converter extends Component{
         return(
             <>
                 <div className="input-group w-25 converterMainDiv">
-                    <button onClick={this.linkDonustur} id="donustur" type='button' className="btn btn-outline-danger converterButton"><BsPatchCheck /></button>
+                    <button onClick={this.convertLink} id="donustur" type='button' className="btn btn-outline-danger converterButton"><BsPatchCheck /></button>
                     <div className="form-floating converterUnderDiv">
                         <input type="text" className="form-control converterİnput" id="video_link" placeholder="." />
                         <label htmlFor="video_link" className="converterLabel">Video Adress</label>

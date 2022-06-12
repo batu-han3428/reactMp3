@@ -6,7 +6,7 @@ import './Header.css';
 const Header = () =>(
     <nav className="navbar fixed-top">
         <div className="container">
-            <Link style={{color:"red"}} to="/" className="navbar-brand">Mp3 Dönüştürücü</Link>
+            <Link to="/" className="navbar-brand"><img src={require('../img/bfLogo.png')} alt="logo" className="navbar-logo"/></Link>
             <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <BsJustify />
             </button>
