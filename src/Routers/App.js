@@ -4,6 +4,7 @@ import Header from "../Components/Header";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Home from '../Components/Home';
+import Contact from '../Components/Contact';
 
 
 class App extends Component{
@@ -11,9 +12,13 @@ class App extends Component{
     return(
       <BrowserRouter>
         <Header/>
-        <Routes >
+        <Routes>
           <Route path="/" element={<Home/>} />
-        </Routes >
+          <Route path="/home" element={<Home/>} />
+          <Route path="/ev" element={<Home/>} />
+          <Route path="contact" element={<Contact/>} />
+          <Route path="iletisim" element={<Contact/>} />
+        </Routes>
       </BrowserRouter>
     );
   }
