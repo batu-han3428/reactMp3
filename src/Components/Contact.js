@@ -22,7 +22,21 @@ class Contact extends Component{
                         form.classList.add('was-validated')
                     }, false)
                 })
-        })()    
+        })()
+        // document.querySelector('.contact-photo-1').style='transform: rotateX(0deg); transition: 4s;';
+        //document.querySelector('.contact-photo-1').style='transition: 4s transform; transform: rotateX(0deg); ';
+        //setInterval(() => {
+ 
+
+           
+        //     if(document.querySelector('.contact-photo-1').style.transform == "rotateX(0deg)"){
+        //         document.querySelector('.contact-photo-1').style='transform: rotateX(180deg); transition: 4s;';
+        //         document.querySelector('.contact-photo-2').style='transform: rotateX(0deg); transition: 4s;';
+        //     }else{
+        //         document.querySelector('.contact-photo-1').style='transform: rotateX(0deg); transition: 4s;';
+        //         document.querySelector('.contact-photo-2').style='transform: rotateX(-180deg); transition: 4s;';
+        //     }
+        // }, 5000);
     }
 
     render(){
@@ -31,42 +45,34 @@ class Contact extends Component{
                 <div className='row row-contact'>
                     <div className='col-md-12 mx-auto d-flex align-items-center'>
                         <div className='row'>
-                                <div className='col-md-6 contact-photo-div'>
-                                    <div className="contact-photo-1">  
-                                        <img className="img-fluid" src={require('../img/contactPhoto.jfif')} alt='ContactPhoto' />
-                                    </div>
-                                    <div className="contact-photo-2">  
-                                        <img className="img-fluid" src={require('../img/contactPhoto1.png')} alt='ContactPhoto' />
-                                    </div>
+                                <div className='col-md-6'>
+                                    <img className="img-fluid" src={require('../img/contactPhoto.jfif')} alt='ContactPhoto' />                             
                                 </div>
                                 <div className='col-md-6 d-flex align-items-center'>
                                     <form className="row g-3 needs-validation" noValidate>
                                         <div className="col-md-6">
-                                            <label className="form-label">Ad</label>
-                                            <input type="text" className="form-control" required />
-                                            <div className="invalid-feedback">
-                                                Boş Geçilemez!
-                                            </div>
+                                            <div class="form-floating">
+                                                <input id="name" type="text" placeholder=' ' className="form-control" required />
+                                                <label for="name">Ad</label>
+                                            </div>                                       
                                         </div>
                                         <div className="col-md-6">
-                                            <label className="form-label">Soyad</label>
-                                            <input type="text" className="form-control" required />
-                                            <div className="invalid-feedback">
-                                                Boş Geçilemez!
-                                            </div>
+                                            <div class="form-floating">
+                                                <input id="surname" type="text" placeholder=' ' className="form-control" required />
+                                                <label for="surname">Soyad</label>
+                                            </div>    
                                         </div>
                                         <div className="col-md-12">
-                                            <label className="form-label">E-Mail</label>
-                                            <div className="input-group has-validation">
-                                                <input type="mail" className="form-control" required />
-                                                <div className="invalid-feedback">
-                                                    Boş Geçilemez!
-                                                </div>
-                                            </div>
+                                            <div class="form-floating">
+                                                <input placeholder=' ' id="email" type="email" className="form-control" required />
+                                                <label for="email">E-Mail</label>
+                                            </div>    
                                         </div>
                                         <div className="col-12">
-                                            <label className="form-label">Mesaj</label>
-                                            <textarea className="form-control" rows="3" placeholder="Mesaj"></textarea>
+                                            <div class="form-floating">
+                                                <textarea id="mesaj" className="form-control" style={{height: "100px"}} placeholder=" " required></textarea>
+                                                <label for="mesaj">Mesaj</label>
+                                            </div>                                             
                                         </div>
                                         <div className="col-12">
                                             <button className="btn btn-outline-primary w-100" type="submit">Gönder</button>
