@@ -63,7 +63,7 @@ class Converter extends Component{
         return(
             <>
                 <div className="input-group w-25 converterMainDiv">
-                    <button onClick={this.convertLink} id="donustur" type='button' className="btn btn-outline-danger converterButton"><BsPatchCheck /></button>
+                    <button onClick={this.convertLink} id="donustur" type='button' className="btn btn-outline-secondary converterButton"><BsPatchCheck /></button>
                     <div className="form-floating converterUnderDiv">
                         <input type="text" className="form-control converterİnput" id="video_link" placeholder="." />
                         <label htmlFor="video_link" className="converterLabel">Video Adress</label>

@@ -3,7 +3,7 @@ import './Banner.css';
 
 const Banner = () =>(
     <div className="card bg-dark text-white bannerCard">
-        <img src={require('../img/homePhoto.png')} className="card-img bannerImage" alt="BannerPhoto"/>
+        <img src={require('../img/mp3ConverterPhoto.webp')} className="card-img bannerImage" alt="BannerPhoto"/>
         <div className="card-img-overlay d-flex align-items-end justify-content-end">
             <p className="card-text bannerText">Türkiyenin en hızlı, en iyi video dönüştürme platformu.</p>
         </div>

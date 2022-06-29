@@ -1,5 +1,4 @@
 import React,{Component} from "react";
-import { BodyText } from "react-bootstrap-icons";
 import Banner from './Banner.js';
 import Converter from './Converter.js';
 import './Home.css';

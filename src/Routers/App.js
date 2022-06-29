@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Home from '../Components/Home';
 import Contact from '../Components/Contact';
+import Login from '../Components/Login';
 
 
 class App extends Component{
@@ -16,8 +17,10 @@ class App extends Component{
           <Route path="/" element={<Home/>} />
           <Route path="/home" element={<Home/>} />
           <Route path="/ev" element={<Home/>} />
-          <Route path="contact" element={<Contact/>} />
-          <Route path="iletisim" element={<Contact/>} />
+          <Route path="/contact" element={<Contact/>} />
+          <Route path="/iletisim" element={<Contact/>} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/giris" element={<Login/>} />
         </Routes>
       </BrowserRouter>
     );

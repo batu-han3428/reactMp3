@@ -9,16 +9,16 @@
 }
 
 .converterİnput{
-    border-color:red;
+    border-color:rgb(184, 170, 170);
 }
 
 .converterLabel{
-    color:rgb(226, 77, 89);
+    color:rgb(184, 170, 170);
 }
 
 .converterİnput:focus {
     border-color: rgb(255, 255, 255);
-    box-shadow: 0 0 0 0.15rem rgb(216, 125, 125);
+    box-shadow: 0 0 0 0.15rem rgb(184, 170, 170);
 }
 
 @media screen and (max-width: 480px) {
