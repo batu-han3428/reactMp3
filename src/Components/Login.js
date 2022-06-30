@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import { UpdateToken } from '../action/token';
 import Loader from './Loader.js';
 import swal from 'sweetalert';
-import Axios from 'axios';
+import {post} from '../methods/api';
 
 
 class Login extends Component{
@@ -12,7 +12,6 @@ class Login extends Component{
     super(props) 
     this.state = {
         user:{
-            login:false,
             loader:false
         }
     }
@@ -29,19 +28,22 @@ class Login extends Component{
 
 
   login(){
+    
     if(this.inputControl())
       swal("Tüm Alanlar Zorunludur!", "", "error");
     else{
       this.setState({loader:true})
-      Axios.post(`https://localhost:7024/api/User/Login`, null, { userLogin: {
-        Email:"document.getElementById('userName').value",
-        Password:"document.getElementById('password').value"
-      }})
-      .then(resp=>resp.data)
-      .then(data=>console.log(data))
-      .catch(data=>console.log(data));
-
-      this.setState({loader:false})
+      post('User/Login',{Email: document.getElementById('userName').value,Password:document.getElementById('password').value })
+      .then(resp=>{
+        if(resp != "" && resp != undefined){
+          this.setState({loader:false});
+          console.log(resp)
+          // window.location.href = "http://localhost:3000/";
+        }else{
+          swal("Giriş Başarısız!", "", "error");
+          this.setState({loader:false});
+        }
+      })
     }
   }
 
