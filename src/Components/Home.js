@@ -36,6 +36,10 @@ class Home extends Component{
         })
     }
 
+    componentDidMount(){
+        
+    }
+
     componentDidUpdate(){
         if(this.state.message.active){
             var bootstrap = require('bootstrap/dist/js/bootstrap.bundle.js');

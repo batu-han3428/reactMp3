@@ -1,9 +1,10 @@
 import {createStore, combineReducers} from 'redux'
-import tokenReducer from '../reducers/token'
+import loaderReducer from '../reducers/loader'
+
 
 export default () => {
     const store = createStore(combineReducers({
-        tokenBilgileri:tokenReducer
+        loaderBilgileri:loaderReducer
     }),window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     );
     return store;

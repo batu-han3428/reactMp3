@@ -6,6 +6,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Home from '../Components/Home';
 import Contact from '../Components/Contact';
 import Login from '../Components/Login';
+import Register from '../Components/Register';
 
 
 class App extends Component{
@@ -21,6 +22,8 @@ class App extends Component{
           <Route path="/iletisim" element={<Contact/>} />
           <Route path="/login" element={<Login/>} />
           <Route path="/giris" element={<Login/>} />
+          <Route path="/register" element={<Register/>} />
+          <Route path="/kayit" element={<Register/>} />
         </Routes>
       </BrowserRouter>
     );

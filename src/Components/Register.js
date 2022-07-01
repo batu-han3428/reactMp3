@@ -5,7 +5,6 @@ import { startloading,endloading } from '../action/loader';
 import Loader from './Loader.js';
 import swal from 'sweetalert';
 import {post} from '../methods/api';
-import { Link } from 'react-router-dom';
 
 
 class Login extends Component{
@@ -65,13 +64,13 @@ class Login extends Component{
                 <span></span>
                 Giriş
               </a>
-              <Link to="/register" className="register">
-                <span></span>
+              <a href="#" className="register">    
+              <span></span>
                 <span></span>
                 <span></span>
                 <span></span>         
                 Kayıt Ol
-              </Link>
+              </a>
             </form>
           </div>
           {this.props.Loader && <Loader/>}
