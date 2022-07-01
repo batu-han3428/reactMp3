@@ -61,7 +61,7 @@ class Home extends Component{
                 </div>
                 <div className="row">
                     <div className="col-md-12">
-                    <Converter message={this.messageShow} />
+                        <Converter message={this.messageShow} />
                     </div>
                 </div>
                 {this.state.message.active && <Message messageHide={this.messageHide} message={this.state.message} />}

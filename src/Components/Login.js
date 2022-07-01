@@ -12,7 +12,7 @@ class Login extends Component{
   constructor(props){ 
     super(props) 
     this.state = {
-      userName: "",
+      userMail: "",
       userPassword:""
     }
     this.login = this.login.bind(this);
@@ -31,13 +31,16 @@ class Login extends Component{
       swal("Tüm Alanlar Zorunludur!", "", "error");
     else{
       this.props.dispatch(startloading())
-      post('User/Login',{Email: document.getElementById('userName').value,Password:document.getElementById('password').value })
+      post('User/Login',{Email: this.state.userMail, Password:this.state.userPassword})
       .then(resp=>{
-        if(resp === "success"){
+        if(resp === 200){
           this.props.dispatch(endloading())
           window.location.href = "https://localhost:3000/";
+        }else if(resp === 403){
+          swal("Kullanıcı Zaten Kayıtlı!", "", "error");
+          this.props.dispatch(endloading()) 
         }else{
-          swal("Giriş Başarısız!", "", "error");
+          swal(resp.data || "", "", "error");
           this.props.dispatch(endloading())
         }
       })
@@ -51,20 +54,20 @@ class Login extends Component{
             <h2>Giriş</h2>
             <form>
               <div className="user-box">
-                <input onChange={(e)=>this.setState({userName:e.target.value})} autoComplete="none" type="text" name="" required="" id="userName"/>
-                <label>Kullanıcı Adı</label>
+                <input onChange={(e)=>this.setState({userMail:e.target.value})} autoComplete="none" type="text" name="" required=""/>
+                <label>Mail</label>
               </div>
               <div className="user-box">
-                <input onChange={(e)=>this.setState({userPassword:e.target.value})} type="password" name="" required="" id="password"/>
+                <input onChange={(e)=>this.setState({userPassword:e.target.value})} type="password" name="" required=""/>
                 <label>Parola</label>
               </div>
-              <a href="#" onClick={this.login}>
+              <Link to="#" onClick={this.login}>
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
                 Giriş
-              </a>
+              </Link>
               <Link to="/register" className="register">
                 <span></span>
                 <span></span>
