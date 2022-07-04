@@ -7,6 +7,7 @@ import Home from '../Components/Home';
 import Contact from '../Components/Contact';
 import Login from '../Components/Login';
 import Register from '../Components/Register';
+import ConfirmEmail from '../Components/ConfirmEmail';
 
 
 class App extends Component{
@@ -24,6 +25,10 @@ class App extends Component{
           <Route path="/giris" element={<Login/>} />
           <Route path="/register" element={<Register/>} />
           <Route path="/kayit" element={<Register/>} />
+          {/* <Route exact path="/ConfirmEmail/:state" element={<ConfirmEmail />} /> */}
+          <Route path="/ConfirmEmail">
+            <Route path=":state" element={<ConfirmEmail />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     );

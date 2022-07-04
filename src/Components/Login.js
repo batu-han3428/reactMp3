@@ -37,7 +37,10 @@ class Login extends Component{
           this.props.dispatch(endloading())
           window.location.href = "https://localhost:3000/";
         }else if(resp === 403){
-          swal("Kullanıcı Zaten Kayıtlı!", "", "error");
+          swal("Email yada parola hatalı!", "", "error");
+          this.props.dispatch(endloading()) 
+        }else if(resp === 401){
+          swal("Lütfen üyeliğinizi onaylayınız.", "", "error");
           this.props.dispatch(endloading()) 
         }else{
           swal(resp.data || "", "", "error");
