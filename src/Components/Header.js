@@ -1,12 +1,28 @@
 import React,{useEffect} from "react";
 import { BsJustify } from "react-icons/bs";
-import { Link } from 'react-router-dom';
+import { Link, useLocation  } from 'react-router-dom';
 import './Header.css';
+import locations from '../helpers/locations';
 
 
 const Header = () =>{
 
+    let location = useLocation();
+
+    useEffect(() => {
+        let slides = document.querySelectorAll('.slide');
+
+        slides.forEach((slide) => {
+            slide.classList.remove('active');
+            let result = locations.filter(x=>x.location === location.pathname || x.turkish === location.pathname || x.english === location.pathname);
+            if(slide.firstElementChild.firstElementChild.href.substr(22) === result[0].location){
+                slide.classList.add('active');
+            }
+        })
+    }, [location]);
+
     useEffect(()=>{
+ 
         let slides = document.querySelectorAll('.slide');
 
         for (let slide of slides) {
@@ -21,7 +37,9 @@ const Header = () =>{
                 slide.classList.remove('active');
             })
         }
+      
     },[])
+
 
     return(
         <nav className="navbar fixed-top">

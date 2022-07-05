@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import { startloading,endloading } from '../action/loader';
 import Loader from './Loader.js';
 import swal from 'sweetalert';
-import {post} from '../methods/api';
+import {post} from '../helpers/api';
 import { Link } from 'react-router-dom';
 
 
@@ -31,7 +31,7 @@ const Login = (props) => {
       .then(resp=>{
         if(resp === 200){
           props.dispatch(endloading())
-          window.location.href = "https://localhost:3000/";
+          // window.location.href = "https://localhost:3000/";
         }else if(resp === 403){
           swal("Email yada parola hatalı!", "", "error");
           props.dispatch(endloading()) 

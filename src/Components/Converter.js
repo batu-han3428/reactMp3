@@ -1,16 +1,15 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { BsPatchCheck } from "react-icons/bs";
 import swal from 'sweetalert';
-import Axios from 'axios';
 import './Converter.css';
 import Loader from './Loader.js';
+import {post} from '../helpers/api';
 
 
 const Converter = (props) =>{
 
     const [link, setLink] = useState("");
     const [loader, setLoader] = useState(false);
-
 
     const linkCheck = (str) => {
         let regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
@@ -31,6 +30,7 @@ const Converter = (props) =>{
         a.remove();
         setLoader(false);
         props.message(true,"Mp3 Dönüştürme İşlemi Tamamlandı!");
+        setLink("");
     }
 
     const error = (data) => {
@@ -39,16 +39,13 @@ const Converter = (props) =>{
     }
 
     const convertLink = () => {
-        if(!linkCheck(document.getElementById('video_link').value)){
+        if(!linkCheck(link)){
             swal("Lütfen Geçerli Bir Link Giriniz!", "", "error");
         }else{
             setLoader(true);
-            Axios.post(`https://localhost:7024/api/Link/ConvertLink`, null, { params: {
-                url:document.getElementById('video_link').value
-              }})
-              .then(resp=>resp.data)
-              .then(data=>mp3Download(data))
-              .catch(data=>error(data));
+            post('Link/ConvertLink',{url:link})
+            .then(data=>mp3Download(data))
+            .catch(data=>error(data));
         }
     }
 
@@ -57,7 +54,7 @@ const Converter = (props) =>{
             <div className="input-group w-25 converterMainDiv">
                 <button onClick={convertLink} id="donustur" type='button' className="btn btn-outline-secondary converterButton"><BsPatchCheck /></button>
                 <div className="form-floating converterUnderDiv">
-                    <input type="text" className="form-control converterİnput" id="video_link" placeholder="." />
+                    <input type="text" value={link} onChange={(e)=>setLink(e.target.value)} className="form-control converterİnput" id="video_link" placeholder="." />
                     <label htmlFor="video_link" className="converterLabel">Video Adress</label>
                 </div>
             </div> 
