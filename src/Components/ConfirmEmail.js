@@ -1,19 +1,14 @@
-import React,{Component} from "react";
+import React from "react";
 
-class ConfirmEmail extends Component{
-    componentDidMount(){
-        console.log(this.props);
-    }
+const ConfirmEmail = (props) =>{
+  return(
+    <>
+      <div>
+        asdas
+      </div>
+    </>
+  );
+}
 
-    render(){
-        return(
-          <>
-          <div>
-            asdas
-          </div>
-          </>
-        );
-    }
-} 
 
 export default ConfirmEmail;

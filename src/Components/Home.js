@@ -1,43 +1,24 @@
-import React,{Component} from "react";
+import React,{useEffect, useState} from "react";
 import Banner from './Banner.js';
 import Converter from './Converter.js';
 import './Home.css';
 import Message from './Message.js';
 
 
-class Home extends Component{
-    constructor(props){ 
-        super(props) 
-        this.state = {
-            message:{
-                active:false,
-                description:""
-            }
-        }
-        this.messageShow = this.messageShow.bind(this);
-        this.messageHide = this.messageHide.bind(this);
+const Home = () => {
+
+    const [message, setMessage] = useState({active:false,description:""});
+
+    const messageShow = (act,desc) => {
+        setMessage({active:act, description:desc});
     }
 
-    messageShow(act,desc){
-        this.setState({
-            message:{
-                active:act,
-                description:desc
-            }
-        })
+    const messageHide = () => {
+        setMessage({active:false, description:""});
     }
 
-    messageHide(){
-        this.setState({
-            message:{
-                active:false,
-                description:""
-            }
-        })
-    }
-
-    componentDidUpdate(){
-        if(this.state.message.active){
+    useEffect(()=>{
+        if(message.active){
             var bootstrap = require('bootstrap/dist/js/bootstrap.bundle.js');
             var toastElList = [].slice.call(document.querySelectorAll('.toast'))
             var toastList = toastElList.map(function(toastEl) {
@@ -45,25 +26,24 @@ class Home extends Component{
             });
            toastList.forEach(toast => toast.show()); 
         }
-    }
+    },[message])
 
-    render(){
-        return(
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="col-md-12">
-                        <Banner />
-                    </div>
+    return(
+        <div className="container-fluid">
+            <div className="row">
+                <div className="col-md-12">
+                    <Banner />
                 </div>
-                <div className="row">
-                    <div className="col-md-12">
-                        <Converter message={this.messageShow} />
-                    </div>
+            </div>
+            <div className="row">
+                <div className="col-md-12">
+                    <Converter message={messageShow} />
                 </div>
-                {this.state.message.active && <Message messageHide={this.messageHide} message={this.state.message} />}
-            </div>     
-        );
-    }
-} 
+            </div>
+            {message.active && <Message messageHide={messageHide} message={message} />}
+        </div>     
+    );
+}
+
 
 export default Home;
