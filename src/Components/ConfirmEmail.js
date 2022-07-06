@@ -12,7 +12,11 @@ const ConfirmEmail = () =>{
   },[])
   return (
       <div id="mainDiv" style={{display:"flex",justifyContent:"center", height:"100vh", alignItems:"center"}}>
-        <img style={{width:"40%", height:"50vh"}} src={require(`../img/${gif}`)} alt="successEmailPhoto"/>
+        {gif ?
+          <img style={{width:"40%", height:"50vh"}} src={require('../img/successConfirmEmail.gif')} alt="successEmailPhoto"/>
+          :
+          <img style={{width:"40%", height:"50vh"}} src={require('../img/failedConfirmEmail.webp')} alt="failedEmailPhoto"/>
+        }
       </div>
   )
 }

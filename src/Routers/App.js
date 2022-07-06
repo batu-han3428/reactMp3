@@ -6,9 +6,9 @@ import Home from '../Components/Home';
 import Contact from '../Components/Contact';
 import Login from '../Components/Login';
 import Register from '../Components/Register';
-import ConfirmEmail from '../Components/SuccessEmail';
+import ConfirmEmail from '../Components/ConfirmEmail';
 import Layout from './Layout';
-import FailedEmail from '../Components/FailedEmail';
+
 
 const App = () =>{
   return(
@@ -26,7 +26,6 @@ const App = () =>{
             <Route path="/kayit" element={<Register/>} />
           </Route>
           <Route path="/ConfirmEmail/:state" element={<ConfirmEmail />} />
-          <Route path="/FailedEmail" element={<FailedEmail />} />
       </Routes>
     </BrowserRouter>
   );
