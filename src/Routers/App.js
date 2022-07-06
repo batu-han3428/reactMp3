@@ -25,7 +25,7 @@ const App = () =>{
             <Route path="/register" element={<Register/>} />
             <Route path="/kayit" element={<Register/>} />
           </Route>
-          <Route path="/ConfirmEmail" element={<ConfirmEmail />} />
+          <Route path="/ConfirmEmail/:state" element={<ConfirmEmail />} />
           <Route path="/FailedEmail" element={<FailedEmail />} />
       </Routes>
     </BrowserRouter>
