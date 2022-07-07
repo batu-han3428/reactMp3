@@ -1,25 +1,36 @@
 import { decodeToken } from "../util/tokenUtil";
-import {connect} from 'react-redux';
+import {getCookie} from '../helpers/cookie';
 
 
-const useAuth = (props) => {
 
-  var auth = decodeToken(props.Token);
-  var isAuthenticated = false;
-  var isAllow = true;
-  if (auth) {
-    isAuthenticated = auth.isAuthenticated;
-    if (isAuthenticated && props && props.roles) {
-      isAllow = props.roles.some((role) => auth?.roles?.includes(role));
+export const onLogin = (cookieName = null) => {
+
+  let cookie = getCookie(cookieName);
+  if(cookie.key !== '' && cookie.value !== undefined){
+    var auth = decodeToken(cookie.value);
+    let exp = new Date(auth.exp * 1000);
+
+    if(exp < new(Date)){
+      return false;
     }
+
+    let mainRoles  = [...auth.roles];
+    let roles = [];
+    mainRoles.forEach(role=>roles.push(role.Value));
+
+
+    return {
+      token:cookie.value,
+      name:auth.name,
+      roles:roles,
+      isAuthenticated:auth.isAuthenticated,
+      exp:exp
+    };
   }
-  return { isAuthenticated, isAllow };
+  return false;
 };
 
-const mapStateToProps = (store) =>{     
-  return {
-      Token:store.tokenBilgileri || ""
-  }
+export const onLogout = () => {
+  let cookie = getCookie("AccessToken");
+  document.cookie = `AccessToken = ${cookie.value}; expires = Mon, 1 Jan 2000 00:00:00 GMT`;
 }
-
-export default connect(mapStateToProps)(useAuth);

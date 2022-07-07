@@ -2,24 +2,27 @@ const user = {
     token:"",
     name:"",
     roles:[],
-    isAuthenticated:false
+    isAuthenticated:false,
+    exp:''
 }
 
 const userReducer = (state = user, action) => {
     switch (action.type) {      
         case "LOGIN_USER":     
             return state = {
-                token:action.token,
-                name:action.name,
-                roles:[...action.roles],
-                isAuthenticated:action.isAuthenticated
+                token:action.user.token,
+                name:action.user.name,
+                roles:action.user.roles,
+                isAuthenticated:action.user.isAuthenticated,
+                exp:action.user.exp
             }
         case "LOGOUT_USER":
             return state = {
                 token:"",
                 name:"",
                 roles:[],
-                isAuthenticated:false
+                isAuthenticated:false,
+                exp:''
             }
         default:
             return state;
