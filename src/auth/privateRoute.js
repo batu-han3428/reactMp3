@@ -1,13 +1,30 @@
-import { Navigate, useLocation } from "react-router-dom";
-import useAuth from "./useAuth";
+import { useEffect, useRef } from "react";
+import {connect} from 'react-redux';
 
 
-const PrivateRoute = ({ children, roles }) => {
-  const { isAuthenticated, isAllow } = useAuth({ roles });
-  const location = useLocation();
-  if (!isAuthenticated) {
-    return <Navigate to={"/login"} replace state={{ location }} />;
-  }
-  return <>{isAllow ? children : <div>You are not allowed to access this page</div>}</>;
+const PrivateRoute = ({ children, User }) => {
+  
+  const isInitialMount = useRef(true);
+
+  useEffect(()=>{
+
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+   } else {   
+    //  console.log(isInitialMount)
+    // console.log(User)
+   }
+   
+  },[User])
+
+  return <>{children}</>;
 };
-export default PrivateRoute;
+
+
+const mapStateToProps = (store) =>{     
+  return {
+      User:store.userBilgileri || null
+  }
+}
+
+export default connect(mapStateToProps)(PrivateRoute);

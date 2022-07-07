@@ -19,12 +19,14 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "redux": "^4.2.0",
+    "ssl-serve": "^6.5.8",
     "sweetalert": "^2.1.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "set HTTPS=true&&react-scripts start",
-    "build": "GENERATE_SOURCEMAP=false react-scripts build",
+    "build": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
+    "sbuild": "npx serve -s build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

@@ -1,4 +1,4 @@
-let locations = [
+export let locations = [
     {
         location:"/",
         turkish:"/ev",
@@ -27,5 +27,5 @@ let locations = [
     }
 ];
 
-
-export default locations;
+export const domainTest = "https://localhost:3001";
+export const domainLive = "http://172.34.1.78:3000";

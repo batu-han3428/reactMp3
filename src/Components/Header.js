@@ -2,7 +2,7 @@ import React,{useEffect} from "react";
 import { BsJustify } from "react-icons/bs";
 import { Link, useLocation  } from 'react-router-dom';
 import './Header.css';
-import locations from '../helpers/locations';
+import {locations, domainTest, domainLive} from '../helpers/locations';
 
 
 const Header = () =>{
@@ -11,11 +11,10 @@ const Header = () =>{
 
     useEffect(() => {
         let slides = document.querySelectorAll('.slide');
-
+        let result = locations.filter(x=>x.location === location.pathname || x.turkish === location.pathname || x.english === location.pathname);
         slides.forEach((slide) => {
             slide.classList.remove('active');
-            let result = locations.filter(x=>x.location === location.pathname || x.turkish === location.pathname || x.english === location.pathname);
-            if(slide.firstElementChild.firstElementChild.href.substr(22) === result[0].location){
+            if(slide.firstElementChild.firstElementChild.href.substr(domainLive.length) === result[0].location){
                 slide.classList.add('active');
             }
         })

@@ -8,6 +8,7 @@ import Login from '../Components/Login';
 import Register from '../Components/Register';
 import ConfirmEmail from '../Components/ConfirmEmail';
 import Layout from './Layout';
+import PrivateRoute from '../auth/privateRoute';
 
 
 const App = () =>{
@@ -18,8 +19,16 @@ const App = () =>{
             <Route path="/" element={<Home/>} />
             <Route path="/home" element={<Home/>} />
             <Route path="/ev" element={<Home/>} />
-            <Route path="/contact" element={<Contact/>} />
-            <Route path="/iletisim" element={<Contact/>} />
+            <Route path="/contact" element={
+              <PrivateRoute>
+                <Contact/>
+              </PrivateRoute>}
+            />  
+            <Route path="/iletisim" element={
+              <PrivateRoute>
+                <Contact/>
+              </PrivateRoute>}
+            />  
             <Route path="/login" element={<Login/>} />
             <Route path="/giris" element={<Login/>} />
             <Route path="/register" element={<Register/>} />
