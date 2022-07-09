@@ -9,12 +9,10 @@ import { loginuser, logoutuser } from '../action/user';
 const Layout = (props) => {
   useEffect(()=>{
     let result = onLogin("AccessToken");
-    // console.log(result);
     if(result === false){
       onLogout();
       props.dispatch(logoutuser()); 
     }else{
-      //console.log("sdda")
       props.dispatch(loginuser(result)); 
     }
   },[])

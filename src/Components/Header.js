@@ -3,9 +3,9 @@ import { BsJustify } from "react-icons/bs";
 import { Link, useLocation  } from 'react-router-dom';
 import './Header.css';
 import {locations, domainTest, domainLive} from '../helpers/locations';
+import {connect} from 'react-redux';
 
-
-const Header = () =>{
+const Header = (props) =>{
 
     let location = useLocation();
 
@@ -14,7 +14,7 @@ const Header = () =>{
         let result = locations.filter(x=>x.location === location.pathname || x.turkish === location.pathname || x.english === location.pathname);
         slides.forEach((slide) => {
             slide.classList.remove('active');
-            if(slide.firstElementChild.firstElementChild.href.substr(domainLive.length) === result[0].location){
+            if(slide.firstElementChild.firstElementChild.href.substr(domainTest.length) === result[0].location){
                 slide.classList.add('active');
             }
         })
@@ -44,6 +44,10 @@ const Header = () =>{
         <nav className="navbar fixed-top">
             <div className="container">
                 <Link to="/" className="navbar-brand"><img src={require('../img/bfLogo.png')} alt="logo" className="navbar-logo"/></Link>
+                {props.User.isAuthenticated &&
+                <div>
+                    <h5>Hoşgeldin {props.User.name}</h5>
+                </div>}
                 <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <BsJustify />
                 </button>
@@ -61,7 +65,7 @@ const Header = () =>{
                             <div 
                                 className="slide" 
                                 style={{backgroundImage:`url(${require('../img/mp3MenuSound5.png')})` }}>
-                                <h3><Link to="/login">Giriş</Link></h3>
+                                <h3>{props.User.isAuthenticated?<Link to="/logout">Çıkış</Link>:<Link to="/login">Giriş</Link>}</h3>
                             </div>
                             <div 
                                 className="slide" 
@@ -77,4 +81,10 @@ const Header = () =>{
 }
 
 
-export default Header;
+const mapStateToProps = (store) =>{     
+    return {
+        User:store.userBilgileri || null
+    }
+  }
+  
+export default connect(mapStateToProps)(Header);

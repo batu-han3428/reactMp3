@@ -9,6 +9,7 @@ import Register from '../Components/Register';
 import ConfirmEmail from '../Components/ConfirmEmail';
 import Layout from './Layout';
 import PrivateRoute from '../auth/privateRoute';
+import Logout from '../Components/Logout';
 
 
 const App = () =>{
@@ -35,6 +36,7 @@ const App = () =>{
             <Route path="/kayit" element={<Register/>} />
           </Route>
           <Route path="/ConfirmEmail/:state" element={<ConfirmEmail />} />
+          <Route path="/logout" element={<Logout />} />
       </Routes>
     </BrowserRouter>
   );

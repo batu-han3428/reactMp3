@@ -1,20 +1,23 @@
 import React,{useState} from "react";
 import './Login.css';
-import {connect} from 'react-redux';
+import {connect, useSelector} from 'react-redux';
 import { startloading,endloading } from '../action/loader';
-import { loginuser, logoutuser } from '../action/user';
+import { loginuser } from '../action/user';
 import Loader from './Loader.js';
 import swal from 'sweetalert';
 import {post} from '../helpers/api';
 import { Link, Navigate } from 'react-router-dom';
-import {onLogin, onLogout} from '../auth/useAuth';
+import {onLogin} from '../auth/useAuth';
 
 
 
 const Login = (props) => {
 
+  // const Authenticated = useSelector((state)=>state.userBilgileri)
+
   const [userMail, setUserMail] = useState("");
   const [userPassword, setUserPassword] = useState("");
+  const [accessError, setAccessError] = useState(false);
 
 
   const inputControl = () => {
@@ -35,12 +38,15 @@ const Login = (props) => {
         if(resp === 200){
           props.dispatch(endloading())
           let result = onLogin("AccessToken");
+          //  props.dispatch(loginuser({token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE2NTczNzMyNTMsImV4cCI6MTY1NzQ1OTY1MywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDozMDAwIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDozMDAwIiwiaXNBdXRoZW50aWNhdGVkIjp0cnVlLCJuYW1lIjoiQmF0dWhhbiIsInJvbGVzIjpbXX0.rJ80q3-UBodApszPpPgiCuo19zc4ecduwthGkYUh_zc",name:"batuhan",roles:["admin"],isAuthenticated:true,exp:1021310}));       
+          
+
           if(result === false){
-            onLogout();
-            props.dispatch(logoutuser()); 
+            setAccessError(true);
           }else{
-            props.dispatch(loginuser(result)); 
+            props.dispatch(loginuser());           
           }
+
         }else if(resp === 403){
           swal("Email yada parola hatalı!", "", "error");
           props.dispatch(endloading()) 
@@ -57,7 +63,8 @@ const Login = (props) => {
 
 
   return(
-    <> {props.User.isAuthenticated ? (
+    <>{ accessError ?  <Navigate to="/logout" />:
+      props.User.isAuthenticated ? (
       <Navigate to="/" />
     ) : (
       <div className="login-box">

@@ -1,6 +1,7 @@
 export const getCookie = (filter = null) =>{
     var getCerezler = [];
     var cerezler = document.cookie.split(";");      
+
     for (var i = 0; i < cerezler.length; i++) { 
         var cerez = cerezler[i].split("="); 
 
