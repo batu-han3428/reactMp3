@@ -10,6 +10,7 @@ import ConfirmEmail from '../Components/ConfirmEmail';
 import Layout from './Layout';
 import PrivateRoute from '../auth/privateRoute';
 import Logout from '../Components/Logout';
+import ConfirmLayout from '../Routers/ConfirmLayout';
 
 
 const App = () =>{
@@ -35,11 +36,13 @@ const App = () =>{
             <Route path="/register" element={<Register/>} />
             <Route path="/kayit" element={<Register/>} />
           </Route>
-          <Route path="/ConfirmEmail/:state" element={
-            <PrivateRoute>
-              <ConfirmEmail />
-            </PrivateRoute>
-          } />
+          <Route element={<ConfirmLayout />}>
+            <Route path="/ConfirmEmail/:state" element={
+              <PrivateRoute pageRoles={["api"]}>
+                <ConfirmEmail />
+              </PrivateRoute>
+            } />
+          </Route>
           <Route path="/logout" element={<Logout />} />
       </Routes>
     </BrowserRouter>
