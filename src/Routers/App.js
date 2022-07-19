@@ -26,7 +26,7 @@ const App = () =>{
               </PrivateRoute>}
             />  
             <Route path="/iletisim" element={
-              <PrivateRoute>
+              <PrivateRoute pageRoles={["basic"]}>
                 <Contact/>
               </PrivateRoute>}
             />  
@@ -35,7 +35,11 @@ const App = () =>{
             <Route path="/register" element={<Register/>} />
             <Route path="/kayit" element={<Register/>} />
           </Route>
-          <Route path="/ConfirmEmail/:state" element={<ConfirmEmail />} />
+          <Route path="/ConfirmEmail/:state" element={
+            <PrivateRoute>
+              <ConfirmEmail />
+            </PrivateRoute>
+          } />
           <Route path="/logout" element={<Logout />} />
       </Routes>
     </BrowserRouter>

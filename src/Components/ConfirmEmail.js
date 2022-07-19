@@ -3,11 +3,12 @@ import { useParams } from 'react-router-dom';
 
 const ConfirmEmail = () =>{
   const params = useParams();
+  console.log(params.state)
   const [gif, setGif] = useState("");
   useEffect(()=>{
-    if(params === true)
+    if(params.state === ":true")
       setGif(true)
-    else if(params === false)
+    else if(params.state === ":false")
       setGif(false)
   },[])
   return (

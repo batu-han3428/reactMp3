@@ -38,13 +38,12 @@ const Login = (props) => {
         if(resp === 200){
           props.dispatch(endloading())
           let result = onLogin("AccessToken");
-          //  props.dispatch(loginuser({token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE2NTczNzMyNTMsImV4cCI6MTY1NzQ1OTY1MywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDozMDAwIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDozMDAwIiwiaXNBdXRoZW50aWNhdGVkIjp0cnVlLCJuYW1lIjoiQmF0dWhhbiIsInJvbGVzIjpbXX0.rJ80q3-UBodApszPpPgiCuo19zc4ecduwthGkYUh_zc",name:"batuhan",roles:["admin"],isAuthenticated:true,exp:1021310}));       
-          
-
+          //props.dispatch(loginuser({token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE2NTczNzMyNTMsImV4cCI6MTY1NzQ1OTY1MywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDozMDAwIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDozMDAwIiwiaXNBdXRoZW50aWNhdGVkIjp0cnVlLCJuYW1lIjoiQmF0dWhhbiIsInJvbGVzIjpbXX0.rJ80q3-UBodApszPpPgiCuo19zc4ecduwthGkYUh_zc",name:"batuhan",roles:["admin"],isAuthenticated:true,exp:1021310}));       
+         
           if(result === false){
             setAccessError(true);
           }else{
-            props.dispatch(loginuser());           
+            props.dispatch(loginuser(result));           
           }
 
         }else if(resp === 403){

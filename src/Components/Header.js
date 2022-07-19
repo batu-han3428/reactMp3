@@ -2,7 +2,7 @@ import React,{useEffect} from "react";
 import { BsJustify } from "react-icons/bs";
 import { Link, useLocation  } from 'react-router-dom';
 import './Header.css';
-import {locations, domainTest, domainLive} from '../helpers/locations';
+import {locations, domainTest, domainLiveNetwork, domainLiveLocal} from '../helpers/locations';
 import {connect} from 'react-redux';
 
 const Header = (props) =>{

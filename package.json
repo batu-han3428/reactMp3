@@ -26,7 +26,6 @@
     "start": "set HTTPS=true&&react-scripts start",
     "build": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
     "sbuild": "npx serve -s build",
-    "sslbuild": "npx https-serve",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

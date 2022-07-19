@@ -86,7 +86,7 @@ const Register = (props) =>{
         if(resp === 200){
           props.dispatch(endloading());
           clearInputs();
-          swal({title: "Üyeliğinizi Onaylamak İçin Size Mail Gönderdik..",
+          swal({title: "Üyeliğinizi Onaylamanız İçin Size Mail Gönderdik..",
           text: "",
           icon: "warning",
           dangerMode: true,});
@@ -117,11 +117,11 @@ const Register = (props) =>{
             </div>
             <form>
               <div className="user-box">
-                <input value={userName} onChange={(e)=>setUserName(e.target.value)} autoComplete="none" type="text" name="" required=""/>
+                <input value={userName} onChange={(e)=>setUserName(e.target.value?e.target.value[0].toUpperCase()+e.target.value.substring(1):"")} autoComplete="none" type="text" name="" required=""/>
                 <label>Ad</label>
               </div>
               <div className="user-box">
-                <input value={userSurName} onChange={(e)=>setuserSurName(e.target.value)} autoComplete="none" type="text" name="" required=""/>
+                <input value={userSurName} onChange={(e)=>setuserSurName(e.target.value?e.target.value[0].toUpperCase()+e.target.value.substring(1):"")} autoComplete="none" type="text" name="" required=""/>
                 <label>Soyad</label>
               </div>
               <div className="user-box">

@@ -28,4 +28,5 @@ export let locations = [
 ];
 
 export const domainTest = "https://localhost:3001";
-export const domainLive = "http://172.34.1.78:3000";
+export const domainLiveNetwork = "http://172.34.1.78:3000";
+export const domainLiveLocal = "http://localhost:3000";

@@ -1,23 +1,21 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 import {connect} from 'react-redux';
+import { Navigate } from 'react-router-dom';
 
-
-const PrivateRoute = ({ children, User }) => {
+const PrivateRoute = ({ children, User, pageRoles} ) => {
   
-  const isInitialMount = useRef(true);
+  const [show, setShow] = useState(0);
+  
 
   useEffect(()=>{
-
-    if (isInitialMount.current) {
-      isInitialMount.current = false;
-   } else {   
-    //  console.log(isInitialMount)
-    // console.log(User)
-   }
-   
+      if(pageRoles !== undefined && User.roles.length !== 0 && pageRoles.indexOf(...User.roles) !== -1){
+        setShow(2);
+      }else{
+        setShow(1);
+      }
   },[User])
 
-  return <>{children}</>;
+  return (<>{show === 2 && children}{show === 1 && <Navigate to="/" />}</>);
 };
 
 
