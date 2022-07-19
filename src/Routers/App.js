@@ -11,7 +11,7 @@ import Layout from './Layout';
 import PrivateRoute from '../auth/privateRoute';
 import Logout from '../Components/Logout';
 import ConfirmLayout from '../Routers/ConfirmLayout';
-
+import NotFound from '../Components/NotFound';
 
 const App = () =>{
   return(
@@ -44,6 +44,7 @@ const App = () =>{
             } />
           </Route>
           <Route path="/logout" element={<Logout />} />
+          <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
