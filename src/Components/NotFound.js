@@ -1,5 +1,6 @@
 import React from "react";
 import './NotFound.css';
+import { Link } from 'react-router-dom';
 
 const NotFound = () => {
     return(
@@ -16,7 +17,7 @@ const NotFound = () => {
                                 Kaybolmuş gibi görünüyorsun...
                                 </h3>
                                 <p>aradığın sayfa bulunamadı!</p>
-                                <a href="" className="link_404">Anasayfa</a>
+                                <Link className="link_404" to="/">Ana Sayfa</Link>
                             </div>
                         </div>
                     </div>
