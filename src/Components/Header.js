@@ -42,22 +42,6 @@ const Header = (props) =>{
             })
         }
 
-        // document.querySelector('.slider-left-button').addEventListener('click',function(){
-        //     let id = null;
-        //     let pos = 0;
-        //     clearInterval(id);
-        //     id = setInterval(frame, 5);
-        //     function frame() {
-        //         if (pos == 100) {
-        //             clearInterval(id);
-        //         } else {
-        //             pos++; 
-        //             document.querySelector('.offcanvas-container').style.right = pos + "px";
-        //         }
-        //     }
-           
-        // })
-      
     },[])
 
 
@@ -81,7 +65,7 @@ const Header = (props) =>{
                                     <span className="icon"><GrContact className="filter-white" /></span>
                                 </div>
                                 <div className="box two">
-                                    <span className="text">Trendler</span>
+                                    <Link to="/trends"><span className="text">Trendler</span></Link>
                                     <span className="icon"><GiLoveSong className="filter-white" /></span>
                                 </div>
                                 <div className="box three">

@@ -12,6 +12,8 @@ import PrivateRoute from '../auth/privateRoute';
 import Logout from '../Components/Logout';
 import ConfirmLayout from '../Routers/ConfirmLayout';
 import NotFound from '../Components/NotFound';
+import Trends from '../Components/Trends';
+
 
 const App = () =>{
   return(
@@ -21,14 +23,16 @@ const App = () =>{
             <Route path="/" element={<Home/>} />
             <Route path="/home" element={<Home/>} />
             <Route path="/ev" element={<Home/>} />
-            <Route path="/contact" element={
-              <PrivateRoute>
-                <Contact/>
+            <Route path="/contact" element={<Contact/>} />  
+            <Route path="/iletisim" element={<Contact/>} />  
+            <Route path="/trends" element={
+              <PrivateRoute pageRoles={["basic"]}>
+                <Trends/>
               </PrivateRoute>}
             />  
-            <Route path="/iletisim" element={
+            <Route path="/trendler" element={
               <PrivateRoute pageRoles={["basic"]}>
-                <Contact/>
+                <Trends/>
               </PrivateRoute>}
             />  
             <Route path="/login" element={<Login/>} />
