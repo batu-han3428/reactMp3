@@ -4,6 +4,11 @@ import { Link, useLocation  } from 'react-router-dom';
 import './Header.css';
 import {locations, domainTest, domainLiveNetwork, domainLiveLocal} from '../helpers/locations';
 import {connect} from 'react-redux';
+import { GrContact } from "react-icons/gr";
+import { GoHome } from "react-icons/go";
+import { BiUser } from "react-icons/bi";
+import { GiLoveSong } from "react-icons/gi";
+
 
 const Header = (props) =>{
 
@@ -36,6 +41,22 @@ const Header = (props) =>{
                 slide.classList.remove('active');
             })
         }
+
+        // document.querySelector('.slider-left-button').addEventListener('click',function(){
+        //     let id = null;
+        //     let pos = 0;
+        //     clearInterval(id);
+        //     id = setInterval(frame, 5);
+        //     function frame() {
+        //         if (pos == 100) {
+        //             clearInterval(id);
+        //         } else {
+        //             pos++; 
+        //             document.querySelector('.offcanvas-container').style.right = pos + "px";
+        //         }
+        //     }
+           
+        // })
       
     },[])
 
@@ -51,26 +72,26 @@ const Header = (props) =>{
                 <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <BsJustify />
                 </button>
-                <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                    <div className="offcanvas-header border-bottom">
-                        <h5 className="offcanvas-title" id="offcanvasNavbarLabel">Mp3 Converter</h5>
-                        <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
+                <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">                
                     <div className="offcanvas-body">
-                        <div className="container">
-                            <div className="slide active" 
-                                style={{backgroundImage:`url(${require('../img/song.png')})` }}>
-                                <h3><Link to="/">Ana Sayfa</Link></h3>
-                            </div>
-                            <div 
-                                className="slide" 
-                                style={{backgroundImage:`url(${require('../img/mp3MenuSound5.png')})` }}>
-                                <h3>{props.User.isAuthenticated?<Link to="/logout">Çıkış</Link>:<Link to="/login">Giriş</Link>}</h3>
-                            </div>
-                            <div 
-                                className="slide" 
-                                style={{backgroundImage:`url(${require('../img/mp3MenuSound4.jpg')})` }}>
-                                <h3><Link to="/contact">İletişim</Link></h3>
+                        <div className="frame">
+                            <div className="boxes">
+                                <div className="box one">
+                                    <Link to="/contact"><span className="text">İletişim</span></Link>
+                                    <span className="icon"><GrContact className="filter-white" /></span>
+                                </div>
+                                <div className="box two">
+                                    <span className="text">Trendler</span>
+                                    <span className="icon"><GiLoveSong className="filter-white" /></span>
+                                </div>
+                                <div className="box three">
+                                    {props.User.isAuthenticated?<Link to="/logout"><span className="text">Çıkış</span></Link>:<Link to="/login"><span className="text">Giriş</span></Link>}
+                                    <span className="icon"><BiUser className="filter-white" /></span>
+                                </div>
+                                <div className="box four">
+                                    <Link to="/"><span className="text">Ana Sayfa</span></Link>
+                                    <span className="icon"><GoHome className="filter-white" /></span>
+                                </div>
                             </div>
                         </div>
                     </div>

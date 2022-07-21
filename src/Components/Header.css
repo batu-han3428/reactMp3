@@ -16,6 +16,9 @@
 .offcanvas{
     border:none !important;
 }
+.offcanvas-backdrop {
+    background-color: transparent;
+  }
 
 .offcanvas-header{
     background:linear-gradient(160deg,rgb(255, 255, 255) 50%,rgb(184, 170, 170));
@@ -26,55 +29,118 @@
     overflow: hidden;
     margin: 0;
     height: 100vh;
+    padding: 0 !important;
 }
 
-.container {
-    width: 100%;
-    display: flex;
-    padding: 0, 20px;
-    user-select: none;
+.filter-white{
+    filter: brightness(0) invert(1);
 }
 
-.slide {
-    height: 20vh;
-    margin: 10px;
-    cursor: pointer;
-    color: white;
-    flex: 1;
-    background-size:100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-    transition: all 500ms ease-in-out;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items:flex-end;
+.frame {
+  height: 100%; 
+  width: 100%;
+  border-radius: 2px;
+  box-shadow: 0.5rem 1rem 1rem rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  background: #fff;
+  font-family: "Fira Sans", Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.slide h3 {
-    position: absolute;
-    font-size: 3vh;
-    margin: 0;
-    opacity: 0;
-    top:100%;
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.slide h3 a{
-    text-decoration: none;
-    color:rgb(0, 0, 0);
+.boxes {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  height: 100%;
 }
 
-.active {
-    box-shadow: 0 5px 20px black;
-    flex: 10;
+.boxes .box {
+  position: relative;
+  flex: 1 1 auto;
+  width: 20%;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  box-shadow: 0.2rem 0 0.2rem rgba(0, 0, 0, 0.6);
 }
 
-.active h3 {
-    opacity: 1;
-    transition: opacity 0.3s ease-in 0.4s;
+.boxes .box .text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  font-size: 1.3rem;
+  color: transparent;
+  transition: all 0.5s ease-in-out;
 }
 
-.slide:not(.active){
-    background-size:contain;
+.boxes .box.one {
+    background: #cccccc;
+}
+
+.boxes .box.one .text {
+  margin-left: 1rem;
+}
+
+.full {
+  width: 400px;
+}
+
+.hide {
+  width: 0;
+}
+
+.boxes .box.two {
+    background: rgb(185, 185, 185);
+}
+
+.boxes .box.two .text {
+  margin-left: 1rem;
+}
+
+.boxes .box.three {
+    background: #aaa9a9;
+}
+
+.boxes .box.four {
+    background: #9e9d9d;
+    width: 80%;
+}
+
+.boxes .box.four .text {
+  transform: translate(-50%, -50%) scale(1);
+  color: white;
+  margin-left: 1rem;
+}
+
+.boxes .box:hover {
+  width: 100%;
+}
+
+.boxes .box:hover .text {
+  color: #fff;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.boxes .box:hover .four {
+  opacity: 0;
+  color: transparent;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.box .icon {
+  color: white;
+  align-self: center;
+  font-size: 2rem;
+  padding-left: 1.3rem;
 }
