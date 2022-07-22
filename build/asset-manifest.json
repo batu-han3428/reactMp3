@@ -1,20 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.74f76adf.css",
-    "main.js": "/static/js/main.3796b3a6.js",
+    "main.css": "/static/css/main.1fbfd9f6.css",
+    "main.js": "/static/js/main.0a967d9d.js",
     "static/js/27.262d8d9e.chunk.js": "/static/js/27.262d8d9e.chunk.js",
     "static/media/mp3ConverterPhoto.webp": "/static/media/mp3ConverterPhoto.ccede65f70000f76f611.webp",
-    "static/media/mp3MenuSound4.jpg": "/static/media/mp3MenuSound4.7c46871b19c2dbd3b9ae.jpg",
-    "static/media/song.png": "/static/media/song.0268ebe36f72eb735132.png",
     "static/media/successConfirmEmail.gif": "/static/media/successConfirmEmail.6ae52c68ef6e3793a4c3.gif",
-    "static/media/mp3MenuSound5.png": "/static/media/mp3MenuSound5.8a3c3c48a86112251fbe.png",
     "static/media/bfLogo.png": "/static/media/bfLogo.5b3a4cd09c2a529b9296.png",
     "static/media/contactPhoto.jfif": "/static/media/contactPhoto.712cb7b35da76954593b.jfif",
     "static/media/failedConfirmEmail.webp": "/static/media/failedConfirmEmail.6eea1f8f761d7ed0246d.webp",
     "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/css/main.74f76adf.css",
-    "static/js/main.3796b3a6.js"
+    "static/css/main.1fbfd9f6.css",
+    "static/js/main.0a967d9d.js"
   ]
 }

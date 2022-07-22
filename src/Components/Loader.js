@@ -14,7 +14,7 @@ const Loader = () => (
             <div className="dot">Y</div>
             <div className="dot">O</div>
             <div className="dot">R</div>
-            <span className="text">Lütfen Bekleyiniz...</span>
+            <span className="loading-text">Lütfen Bekleyiniz...</span>
         </div>
     </div>
     

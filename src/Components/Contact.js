@@ -38,7 +38,6 @@ const Contact = (props) => {
     
     const sendMail = () =>{
         props.dispatch(startloading())
-        console.log(props.Loader)
         post("user/userContact",{name:name, surname:surName, mail:mail, subject:subject, message: message})
         .then(resp=>{
             if(resp === 200)
