@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {BrowserRouter,Routes ,Route} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -13,6 +13,7 @@ import Logout from '../Components/Logout';
 import ConfirmLayout from '../Routers/ConfirmLayout';
 import NotFound from '../Components/NotFound';
 import Trends from '../Components/Trends';
+import { locations } from '../helpers/locations';
 
 
 const App = () =>{
@@ -20,35 +21,35 @@ const App = () =>{
     <BrowserRouter>
       <Routes>
           <Route element={<Layout />}>
-            <Route path="/" element={<Home/>} />
-            <Route path="/home" element={<Home/>} />
-            <Route path="/ev" element={<Home/>} />
-            <Route path="/contact" element={<Contact/>} />  
-            <Route path="/iletisim" element={<Contact/>} />  
-            <Route path="/trends" element={
+            <Route exact path={locations.Home.location} element={<Home/>} />
+            <Route path={locations.Home.english} element={<Home/>} />
+            <Route path={locations.Home.turkish} element={<Home/>} />
+            <Route path={locations.Contact.english} element={<Contact/>} />  
+            <Route path={locations.Contact.turkish}  element={<Contact/>} />  
+            <Route path={locations.Trends.english} element={
               <PrivateRoute pageRoles={["basic"]}>
                 <Trends/>
               </PrivateRoute>}
             />  
-            <Route path="/trendler" element={
+            <Route path={locations.Trends.turkish} element={
               <PrivateRoute pageRoles={["basic"]}>
                 <Trends/>
               </PrivateRoute>}
             />  
-            <Route path="/login" element={<Login/>} />
-            <Route path="/giris" element={<Login/>} />
-            <Route path="/register" element={<Register/>} />
-            <Route path="/kayit" element={<Register/>} />
+            <Route path={locations.Login.english} element={<Login/>} />
+            <Route path={locations.Login.turkish} element={<Login/>} />
+            <Route path={locations.Register.english} element={<Register/>} />
+            <Route path={locations.Register.turkish} element={<Register/>} />
           </Route>
           <Route element={<ConfirmLayout />}>
-            <Route path="/ConfirmEmail/:state" element={
+            <Route path={locations.ConfirmEmail.location+"/:state"} element={
               <PrivateRoute pageRoles={["api"]}>
                 <ConfirmEmail />
               </PrivateRoute>
             } />
           </Route>
-          <Route path="/logout" element={<Logout />} />
-          <Route path='*' element={<NotFound />} />
+          <Route path={locations.Logout.location} element={<Logout />} />
+          <Route path={locations.NotFound.location} element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

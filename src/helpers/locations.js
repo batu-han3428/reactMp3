@@ -1,31 +1,39 @@
-export let locations = [
-    {
+export const locations = {
+    Home:{
         location:"/",
         turkish:"/ev",
         english:"/home"
     },
-    {
+    Register:{
         location:"/login",
         turkish:"/kayit",
         english:"/register"
     },
-    {
+    Login:{
         location:"/login",
         turkish:"/giris",
         english:"/login"
     },
-    {
+    Contact:{
         location:"/contact",
         turkish:"/iletisim",
         english:"/contact"
     },
-    ,
-    {
-        location:"/ConfirmEmail",
-        turkish:"/ConfirmEmail",
-        english:"/ConfirmEmail"
+    Trends:{
+        location:"/trends",
+        turkish:"/trendler",
+        english:"/trends"
+    },
+    ConfirmEmail:{
+        location:"/ConfirmEmail"
+    },
+    NotFound:{
+        location:"*"
+    },
+    Logout:{
+        location:"/logout"
     }
-];
+};
 
 export const domainTest = "https://localhost:3001";
 export const domainLiveNetwork = "http://172.34.1.78:3000";

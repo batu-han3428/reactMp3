@@ -11,40 +11,6 @@ import { GiLoveSong } from "react-icons/gi";
 
 
 const Header = (props) =>{
-
-    let location = useLocation();
-
-    useEffect(() => {
-        let slides = document.querySelectorAll('.slide');
-        let result = locations.filter(x=>x.location === location.pathname || x.turkish === location.pathname || x.english === location.pathname);
-        slides.forEach((slide) => {
-            slide.classList.remove('active');
-            if(slide.firstElementChild.firstElementChild.href.substr(domainTest.length) === result[0].location){
-                slide.classList.add('active');
-            }
-        })
-    }, [location]);
-
-    useEffect(()=>{
- 
-        let slides = document.querySelectorAll('.slide');
-
-        for (let slide of slides) {
-            slide.addEventListener('click', () => {
-                clearActiveClasses();
-                slide.classList.add('active');
-            })
-        }
-        
-        function clearActiveClasses() {
-            slides.forEach((slide) => {
-                slide.classList.remove('active');
-            })
-        }
-
-    },[])
-
-
     return(
         <nav className="navbar fixed-top">
             <div className="container">
