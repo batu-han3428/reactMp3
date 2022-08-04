@@ -3,7 +3,8 @@ const user = {
     name:"",
     roles:[],
     isAuthenticated:false,
-    exp:''
+    exp:'',
+    mail:''
 }
 
 const userReducer = (state = user, action) => {
@@ -14,7 +15,8 @@ const userReducer = (state = user, action) => {
                 name:action.user.name,
                 roles:action.user.roles,
                 isAuthenticated:action.user.isAuthenticated,
-                exp:action.user.exp
+                exp:action.user.exp,
+                mail:action.user.mail
             }
         case "LOGOUT_USER":
             return state = {
@@ -22,7 +24,8 @@ const userReducer = (state = user, action) => {
                 name:"",
                 roles:[],
                 isAuthenticated:false,
-                exp:''
+                exp:'',
+                mail:''
             }
         default:
             return state;

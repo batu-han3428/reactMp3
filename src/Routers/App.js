@@ -14,6 +14,9 @@ import ConfirmLayout from '../Routers/ConfirmLayout';
 import NotFound from '../Components/NotFound';
 import Trends from '../Components/Trends';
 import { locations } from '../helpers/locations';
+import ResetPassword from '../Components/ResetPassword';
+import NewPasswordLayout from './NewPasswordLayout';
+import NewPassword from '../Components/NewPassword';
 
 
 const App = () =>{
@@ -40,11 +43,20 @@ const App = () =>{
             <Route path={locations.Login.turkish} element={<Login/>} />
             <Route path={locations.Register.english} element={<Register/>} />
             <Route path={locations.Register.turkish} element={<Register/>} />
+            <Route path={locations.ResetPassword.english} element={<ResetPassword/>} />
+            <Route path={locations.ResetPassword.turkish} element={<ResetPassword/>} />
           </Route>
           <Route element={<ConfirmLayout />}>
             <Route path={locations.ConfirmEmail.location+"/:state"} element={
               <PrivateRoute pageRoles={["api"]}>
                 <ConfirmEmail />
+              </PrivateRoute>
+            } />
+          </Route>
+          <Route element={<NewPasswordLayout />}>
+            <Route path={locations.NewPassword.location} element={
+              <PrivateRoute pageRoles={["api"]}>
+                <NewPassword />
               </PrivateRoute>
             } />
           </Route>

@@ -19,13 +19,14 @@ export const onLogin = (cookieName = null) => {
     let roles = [];
     mainRoles.forEach(role=>roles.push(role.Value));
 
-
+   
     return {
       token:cookie.value,
       name:auth.name,
       roles:roles,
       isAuthenticated:auth.isAuthenticated,
-      exp:exp
+      exp:exp,
+      mail:auth.email
     };
   }
   return false;

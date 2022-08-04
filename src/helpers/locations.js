@@ -24,6 +24,16 @@ export const locations = {
         turkish:"/trendler",
         english:"/trends"
     },
+    ResetPassword:{
+        location:"/resetpassword",
+        turkish:"/sifresifirla",
+        english:"/resetpassword"
+    },
+    NewPassword:{
+        location:"/newpassword",
+        turkish:"/yenisifre",
+        english:"/newpassword"
+    },
     ConfirmEmail:{
         location:"/ConfirmEmail"
     },

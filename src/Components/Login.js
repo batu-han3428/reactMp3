@@ -91,6 +91,9 @@ const Login = (props) => {
             <span></span>         
             Kayıt Ol
           </Link>
+          <div className="resetPasswordMain">
+            <Link to="/resetpassword" className="resetPassword">Parolanı mı unuttun?</Link>
+          </div>
         </form>
       </div>
       

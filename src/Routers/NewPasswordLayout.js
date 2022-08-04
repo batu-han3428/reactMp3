@@ -5,9 +5,10 @@ import {connect} from 'react-redux';
 import { loginuser, logoutuser } from '../action/user';
 
 
-const ConfirmLayout = (props) => {
+const NewPasswordLayout = (props) => {
   useEffect(()=>{
-    let result = onLogin("ConfirmToken");
+    let result = onLogin("NewPasswordToken");
+
     if(result !== false)
         props.dispatch(loginuser(result));
   },[])
@@ -18,4 +19,4 @@ const ConfirmLayout = (props) => {
   );
 };
 
-export default connect()(ConfirmLayout);
+export default connect()(NewPasswordLayout);
