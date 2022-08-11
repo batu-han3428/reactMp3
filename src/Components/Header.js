@@ -1,6 +1,6 @@
-import React,{useEffect} from "react";
+import React from "react";
 import { BsJustify } from "react-icons/bs";
-import { Link, useLocation  } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Header.css';
 import {locations, domainTest, domainLiveNetwork, domainLiveLocal} from '../helpers/locations';
 import {connect} from 'react-redux';
@@ -8,6 +8,8 @@ import { GrContact } from "react-icons/gr";
 import { GoHome } from "react-icons/go";
 import { BiUser } from "react-icons/bi";
 import { GiLoveSong } from "react-icons/gi";
+import { FcSettings } from "react-icons/fc";
+import { CgClose } from "react-icons/cg";
 
 
 const Header = (props) =>{
@@ -16,15 +18,32 @@ const Header = (props) =>{
             <div className="container">
                 <Link to="/" className="navbar-brand"><img src={require('../img/bfLogo.png')} alt="logo" className="navbar-logo"/></Link>
                 {props.User.isAuthenticated &&
-                <div>
+                <div className="d-flex position-relative" id="user-information">
                     <h5>Hoşgeldin {props.User.name}</h5>
-                </div>}
+                    <button className="btn" type="button" data-bs-toggle="collapse" data-bs-target="#user-settings" aria-expanded="false" aria-controls="user-settings">
+                        <FcSettings style={{cursor:"pointer"}}  />
+                    </button>
+                    <div className="collapse" id="user-settings">
+                        <div className="card card-body p-0">
+                            <ul className="list-group">
+                                <li className="list-group-item">An item</li>
+                                <li className="list-group-item">A second item</li>
+                                <li className="list-group-item">A third item</li>
+                                <li className="list-group-item">A fourth item</li>
+                                <li className="list-group-item">And a fifth one</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>}               
                 <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <BsJustify />
                 </button>
                 <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">                
                     <div className="offcanvas-body">
-                        <div className="frame">
+                        <div className="frame" style={{position:"relative"}}>         
+                            <button id="menu-in-close" className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                                <CgClose />
+                            </button>                
                             <div className="boxes">
                                 <div className="box one">
                                     <Link to="/contact"><span className="text">İletişim</span></Link>

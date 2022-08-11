@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import { BsPatchCheck } from "react-icons/bs";
 import swal from 'sweetalert';
 import './Converter.css';

@@ -144,3 +144,39 @@
   font-size: 2rem;
   padding-left: 1.3rem;
 }
+
+#user-settings{
+  position: absolute;
+  top:100%;
+  left:100%;
+  width:75%;
+}
+
+#user-information h5{
+  align-self: center !important;
+  margin-top: 7px;
+}
+
+@media screen and (max-width: 480px) {
+  #user-settings{
+    left: 5% !important;
+  }
+  .navbar .container{
+    padding: 0 !important;
+  }
+  #menu-in-close{
+    display: block !important;
+  }
+}
+
+#menu-in-close{
+  position: absolute !important;
+  top:0 !important;
+  left:87% !important;
+  z-index: 99999999999999999999999999999 !important;
+  display: none;
+}
+#menu-in-close svg{
+  font-size: 30px;
+  color:white;
+}
