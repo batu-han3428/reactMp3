@@ -34,7 +34,7 @@ const Converter = (props) =>{
     }
 
     const error = (data) => {
-        swal("Beklenmeyen Bir Hata Oluştu!", "", "error");
+        swal(data, "", "error");
         setLoader(false);
     }
 
@@ -44,7 +44,12 @@ const Converter = (props) =>{
         }else{
             setLoader(true);
             post('Link/ConvertLink',{url:link})
-            .then(data=>mp3Download(data))
+            .then(data=>{
+                if(data.data !== undefined)
+                    error(data.data);
+                else
+                    mp3Download(data);
+            })
             .catch(data=>error(data));
         }
     }
