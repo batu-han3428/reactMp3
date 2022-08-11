@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from 'react-router-dom';
 import './Header.css';
 import {locations, domainTest, domainLiveNetwork, domainLiveLocal} from '../helpers/locations';
@@ -13,18 +13,41 @@ import { CgClose } from "react-icons/cg";
 import { AiOutlineMessage } from "react-icons/ai";
 import { TbLanguage } from "react-icons/tb";
 import { FiSettings, FiHelpCircle } from "react-icons/fi";
+import { MdOutlineArrowForwardIos } from "react-icons/md";
 import { IoExitOutline } from "react-icons/io5";
+import { useTranslation } from 'react-i18next';
 
 
 
 const Header = (props) =>{
+
+    const { t, i18n } = useTranslation();
+
+    const userLanguageActive = (e) => {
+        document.getElementById('user-settings-language').firstChild.firstChild.childNodes.forEach((item)=>item.classList.remove('active'));
+        e.target.classList.add('active')
+        i18n.changeLanguage(e.target.id)
+    }
+
+    // useEffect(()=>{
+
+    //     document.getElementById('user-settings-language').firstChild.childNodes.forEach((item)=>{
+    //         item.addEventListener('click',function(){
+    //             document.getElementById('user-settings-language').firstChild.childNodes.forEach((item)=>item.classList.remove('active'));
+    //             this.classList.add('active');
+    //         });
+    //     });
+    //     i18n.changeLanguage('en-US')
+    // },[])
+    
+
     return(
         <nav className="navbar fixed-top">
             <div className="container">
                 <Link to="/" className="navbar-brand"><img src={require('../img/bfLogo.png')} alt="logo" className="navbar-logo"/></Link>
                 {props.User.isAuthenticated &&
                 <div className="d-flex position-relative" id="user-information">
-                    <h5>Hoşgeldin {props.User.name}</h5>
+                    <h5>{t('Hoşgeldin')} {props.User.name}</h5>
                     <button className="btn" type="button" data-bs-toggle="collapse" data-bs-target="#user-settings" aria-expanded="false" aria-controls="user-settings">
                         <FcSettings style={{cursor:"pointer"}}  />
                     </button>
@@ -33,13 +56,21 @@ const Header = (props) =>{
                             <div className="list-group">
                                 <a href="#" className="list-group-item list-group-item-action"><BsClockHistory /> İndirme Geçmişim</a>
                                 <a href="#" className="list-group-item list-group-item-action"><AiOutlineMessage /> Mesajlarım</a>
-                                <a href="#" className="list-group-item list-group-item-action"><TbLanguage /> Dil Ayarı</a>
+                                <Link data-bs-toggle="collapse" data-bs-target="#user-settings-language" to="#" className="list-group-item list-group-item-action"><TbLanguage /> Dil Ayarı <MdOutlineArrowForwardIos /></Link>
                                 <a href="#" className="list-group-item list-group-item-action"><FiSettings /> Ayarlar</a>
                                 <a href="#" className="list-group-item list-group-item-action"><FiHelpCircle /> Yardım</a>
                                 <Link to="/logout" className="list-group-item list-group-item-action"><IoExitOutline /> Çıkış</Link>
                             </div>
+                            <div className="collapse" id="user-settings-language">
+                                <div className="card card-body p-0">
+                                    <div className="list-group">
+                                        <Link id="tr-TR" onClick={(e)=>userLanguageActive(e)} to="#" className="list-group-item list-group-item-action active"><TbLanguage /> Türkçe</Link>
+                                        <Link id="en-US" onClick={(e)=>userLanguageActive(e)} to="#" className="list-group-item list-group-item-action"><TbLanguage /> İngilizce</Link>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </div>                  
                 </div>}               
                 <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <BsJustify />

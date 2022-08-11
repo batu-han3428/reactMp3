@@ -148,6 +148,13 @@
 #user-settings{
   position: absolute;
   top:100%;
+  left:90%;
+  width:100%;
+}
+
+#user-settings-language{
+  position: absolute;
+  top:32.5%;
   left:100%;
   width:100%;
 }
@@ -159,6 +166,9 @@
 
 @media screen and (max-width: 480px) {
   #user-settings{
+    left: 5% !important;
+  }
+  #user-settings-language{
     left: 5% !important;
   }
   .navbar .container{
@@ -181,6 +191,14 @@
   color:white;
 }
 
-#user-settings .list-group-item svg{
+#user-settings .list-group-item svg:first-child{
+  margin-right: 10px;
+}
+
+#user-settings .list-group-item svg:nth-child(2){
+  margin-left: 58px;
+}
+
+#user-settings-language .list-group-item svg{
   margin-right: 10px;
 }

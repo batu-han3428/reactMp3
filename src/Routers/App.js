@@ -17,6 +17,7 @@ import { locations } from '../helpers/locations';
 import ResetPassword from '../Components/ResetPassword';
 import NewPasswordLayout from './NewPasswordLayout';
 import NewPassword from '../Components/NewPassword';
+import '../language/i18n';
 
 
 const App = () =>{
