@@ -1,15 +1,20 @@
 import React from "react";
-import { BsJustify } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 import './Header.css';
 import {locations, domainTest, domainLiveNetwork, domainLiveLocal} from '../helpers/locations';
 import {connect} from 'react-redux';
+import { BsJustify, BsClockHistory } from "react-icons/bs";
 import { GrContact } from "react-icons/gr";
 import { GoHome } from "react-icons/go";
 import { BiUser } from "react-icons/bi";
 import { GiLoveSong } from "react-icons/gi";
 import { FcSettings } from "react-icons/fc";
 import { CgClose } from "react-icons/cg";
+import { AiOutlineMessage } from "react-icons/ai";
+import { TbLanguage } from "react-icons/tb";
+import { FiSettings, FiHelpCircle } from "react-icons/fi";
+import { IoExitOutline } from "react-icons/io5";
+
 
 
 const Header = (props) =>{
@@ -25,13 +30,14 @@ const Header = (props) =>{
                     </button>
                     <div className="collapse" id="user-settings">
                         <div className="card card-body p-0">
-                            <ul className="list-group">
-                                <li className="list-group-item">An item</li>
-                                <li className="list-group-item">A second item</li>
-                                <li className="list-group-item">A third item</li>
-                                <li className="list-group-item">A fourth item</li>
-                                <li className="list-group-item">And a fifth one</li>
-                            </ul>
+                            <div className="list-group">
+                                <a href="#" className="list-group-item list-group-item-action"><BsClockHistory /> İndirme Geçmişim</a>
+                                <a href="#" className="list-group-item list-group-item-action"><AiOutlineMessage /> Mesajlarım</a>
+                                <a href="#" className="list-group-item list-group-item-action"><TbLanguage /> Dil Ayarı</a>
+                                <a href="#" className="list-group-item list-group-item-action"><FiSettings /> Ayarlar</a>
+                                <a href="#" className="list-group-item list-group-item-action"><FiHelpCircle /> Yardım</a>
+                                <Link to="/logout" className="list-group-item list-group-item-action"><IoExitOutline /> Çıkış</Link>
+                            </div>
                         </div>
                     </div>
                 </div>}               

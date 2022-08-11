@@ -149,7 +149,7 @@
   position: absolute;
   top:100%;
   left:100%;
-  width:75%;
+  width:100%;
 }
 
 #user-information h5{
@@ -179,4 +179,8 @@
 #menu-in-close svg{
   font-size: 30px;
   color:white;
+}
+
+#user-settings .list-group-item svg{
+  margin-right: 10px;
 }
