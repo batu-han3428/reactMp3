@@ -1,17 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.1fbfd9f6.css",
-    "main.js": "/static/js/main.0a967d9d.js",
+    "main.css": "/static/css/main.9091c546.css",
+    "main.js": "/static/js/main.398c9a1f.js",
     "static/js/27.262d8d9e.chunk.js": "/static/js/27.262d8d9e.chunk.js",
-    "static/media/mp3ConverterPhoto.webp": "/static/media/mp3ConverterPhoto.ccede65f70000f76f611.webp",
+    "static/media/mp3ConverterPhoto.png": "/static/media/mp3ConverterPhoto.ccede65f70000f76f611.png",
     "static/media/successConfirmEmail.gif": "/static/media/successConfirmEmail.6ae52c68ef6e3793a4c3.gif",
     "static/media/bfLogo.png": "/static/media/bfLogo.5b3a4cd09c2a529b9296.png",
+    "static/media/3QczmDo.png": "/static/media/3QczmDo.1652abfbec4bede0752b.png",
     "static/media/contactPhoto.jfif": "/static/media/contactPhoto.712cb7b35da76954593b.jfif",
+    "static/media/ekEBert.png": "/static/media/ekEBert.1cbb4829bba6f9e3e8cc.png",
     "static/media/failedConfirmEmail.webp": "/static/media/failedConfirmEmail.6eea1f8f761d7ed0246d.webp",
     "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/css/main.1fbfd9f6.css",
-    "static/js/main.0a967d9d.js"
+    "static/css/main.9091c546.css",
+    "static/js/main.398c9a1f.js"
   ]
 }
